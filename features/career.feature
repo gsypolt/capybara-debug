@@ -5,6 +5,6 @@ Feature: Dominos Gift Cards
     Given I visit the Dominos home page
 
   @career
-  Scenario: Gift Cards
+  Scenario: Dominos Career
     When I click on the "Career" tab
     Then I should see Career page

@@ -101,3 +101,7 @@ Then(/^I should see Dominos Menu$/) do
     puts("The Dominos Pizza Menu is present")
   end
 end
+
+Then(/^I should see Email and Offer link$/) do
+  expect(page).to have xpath("//*[@href='https://order.dominos.com/en/pages/customer/opt-in.jsp']")
+end

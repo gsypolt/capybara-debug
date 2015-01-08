@@ -52,3 +52,7 @@ Scenario: Track My Order
 Scenario: View the Menu
   When I click the Menu tab
   Then I should see Dominos Menu
+
+@expect
+Scenario: Email and Offer
+  Then I should see Email and Offer link
