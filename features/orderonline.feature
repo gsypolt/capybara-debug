@@ -7,7 +7,7 @@ Background:
 @location
 Scenario: Location Search for Dominos Pizza
   Then I should see the Dominos Location Search page
-  Given I click the Order Online tab
+  When I click the Order Online tab
 
 @form
 Scenario: Fill out Location Search
@@ -15,7 +15,7 @@ Scenario: Fill out Location Search
   And I select "Business" from address type drop-down
   And I enter "7950 Jones Branch Dr" in the street address input field
   And I enter "McLean" in the city input field
-  And I select "VA" from state drop-down
+  And I select Virginia from drop-down
   And I click the Continue button
   Then I should see "7950 Jones Branch Dr" selected in the order settings
 

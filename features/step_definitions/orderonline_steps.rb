@@ -23,9 +23,8 @@ When(/^I click the Order Online tab$/) do
 end
 
 When(/^I click the Continue button$/) do
-  # binding.pry
   continue_button
-  sleep 2
+  sleep 1
 
 end
 
@@ -94,6 +93,10 @@ When(/^I click the Menu tab$/) do
   rescue
     puts "The Dominos homePage is not present"
   end
+end
+
+Given(/^I select Virginia from drop\-down$/) do |state|
+  select(state, from: 'Region')
 end
 
 Then(/^I should see Dominos Menu$/) do
