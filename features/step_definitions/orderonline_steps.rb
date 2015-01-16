@@ -1,10 +1,12 @@
 def fill_out_location
   # Hard-code values and should use parameterization
-  select('Business', from: 'Adress_Type_Select')
+  select('Business', from: 'Address_Type')
   fill_in('Street', with: '7950 Jones Branch Dr')
   fill_in('City', with: 'McLean')
   select('VA', from: 'Region')
-  fill_in('Postal_Code', :with => '22102')
+  # Fix: Unable to find field "Zip_Code" (Capybara::ElementNotFound)
+  # fill_in('Postal_Code', :with => '22102')
+  fill_in('Zip_Code', :with => '22102')
 end
 
 def continue_button
@@ -39,12 +41,16 @@ end
 
 When(/^I click the Change My Store link$/) do
   click_mystore_change
-  find(:xpath, "//div[@data-storeid='4348']//a[@data-type='Carryout']").click
+
+  within ("[data-storeid='4348']") do
+      find("[data-type='Carryout']").click
+  end
+
 end
 
 # Validate
 Then(/^I should see the Dominos Location Search page$/) do
-  expect(page).to have_selector(:id, 'locationsSearchPage')
+  expect(page).to have_selector(:id, 'Dominos-LocationSearch')
 end
 
 Then(/^I should see "(.*?)" selected in the order settings$/) do |my_location|
